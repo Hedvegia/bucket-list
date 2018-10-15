@@ -1,8 +1,16 @@
 'use strict'
 
+const { get, getOne, create, deleteOne, update } = require('../model/listQueries/list')
+
 const resolvers = {
   Query: {
-    getHello: () => ({ hello: 'Hello World!' })
+    getItems: () => get(),
+    getOneItem: (root, args) => getOne(args),
+  },
+  Mutation: {
+    createOne: (root, args) => create(args),
+    deleteOne: (root, args) => deleteOne(args),
+    updateOne: (root, args) => update(args)
   }
 }
 
