@@ -6,11 +6,11 @@ const resolvers = {
   Query: {
     hello: () => 'Hello',
     getItems: () => get(),
-    getOneItem: (root, args) => getOne(args)
+    getOneItem: (root, { id: _id }) => getOne({ id: _id })
   },
   Mutation: {
     createOne: (root, args) => create(args),
-    deleteOne: (root, args) => deleteOne(args),
+    deleteOne: (root, { id: _id }) => deleteOne({ id: _id }),
     updateOne: (root, args) => update(args)
   }
 }
