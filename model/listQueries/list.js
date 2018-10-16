@@ -13,19 +13,19 @@ const update = (args) => connection()
   .then((response) => response)
   .catch((err) => err)
 
-const getOne = (id) => connection()
+const getOne = ({ id }) => connection()
   .then(() => List.findById(id))
   .then((response) => response)
   .catch((err) => err)
 
-const deleteOne = (id) => connection()
+const deleteOne = ({ id }) => connection()
   .then(() => List.findByIdAndDelete(id))
   .then((response) => response)
   .catch((err) => err)
 
 const create = (args) => connection()
   .then(() => {
-    const list = new List(args)
+    const list = new List(args.input)
     return list.save()
   })
   .then((response) => response)

@@ -7,7 +7,7 @@ const logger = require('./logger')
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
+  resolvers
 })
 
 server.listen().then(({ url }) => {

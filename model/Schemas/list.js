@@ -12,4 +12,4 @@ const ListSchema = new Schema({
   notes: String,
 })
 
-module.exports = mongoose.model('List', listSchema)
+module.exports = mongoose.model('List', ListSchema)
