@@ -4,8 +4,9 @@ const { get, getOne, create, deleteOne, update } = require('../model/listQueries
 
 const resolvers = {
   Query: {
+    hello: () => 'Hello',
     getItems: () => get(),
-    getOneItem: (root, args) => getOne(args),
+    getOneItem: (root, args) => getOne(args)
   },
   Mutation: {
     createOne: (root, args) => create(args),

@@ -2,22 +2,26 @@
 
 const { gql } = require('apollo-server')
 
-const TypeDefs = gql`
-  type List = {
+const typeDefs = gql`
+  type List {
     id: String
     title: String
     where: String
-    when: Data
-    to: Date
+    when: String
+    to: String
     notes: String
   }
 
-  type ListInput = {
+  input ListInput {
     title: String
     where: String
-    when: Date
-    to: Date
+    when: String
+    to: String
     notes: String
+  }
+
+  type Delete {
+    ok: String
   }
 
   type Query {
@@ -26,14 +30,12 @@ const TypeDefs = gql`
     getOneItem(id: String): List
   }
 
-  type Delete {
-    ok
-  }
-
   type Mutation {
-    createOne(id: String, input: ListInput): List
+    createOne(input: ListInput): List
     deleteOne(id: String, input: ListInput): Delete
     updateOne(id: String, input: ListInput): List
   }
 `
-module.exports = TypeDefs
+
+
+module.exports = typeDefs
