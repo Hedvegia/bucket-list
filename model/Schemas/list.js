@@ -6,10 +6,8 @@ const { Schema } = mongoose
 
 const ListSchema = new Schema({
   title: String,
-  where: String,
-  when: Date,
-  to: Date,
   notes: String,
+  state: String
 })
 
 module.exports = mongoose.model('List', ListSchema)
